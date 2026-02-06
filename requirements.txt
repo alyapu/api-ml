@@ -1,7 +1,10 @@
 flask
 flask-cors
 gunicorn
-ultralytics==8.0.196
 pillow
 numpy
 opencv-python-headless
+
+torch==2.1.0
+torchvision==0.16.0
+ultralytics==8.0.196
