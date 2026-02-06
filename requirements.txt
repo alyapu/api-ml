@@ -1,10 +1,9 @@
-Flask==3.1.2
-ultralytics==8.3.220
-torch==2.2.2+cpu
-torchvision==0.17.2+cpu
-torchaudio==2.2.2+cpu
-numpy==1.26.4
-pillow==12.0.0
-opencv-python-headless
+flask
 flask-cors
 gunicorn
+ultralytics
+torch==2.0.1
+torchvision==0.15.2
+pillow
+numpy
+opencv-python-headless

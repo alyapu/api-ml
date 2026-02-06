@@ -9,6 +9,7 @@ CORS(app)
 
 # load model sekali saat startup
 model = YOLO("best.pt")
+model.to("cpu")
 
 @app.route("/", methods=["GET"])
 def health():
