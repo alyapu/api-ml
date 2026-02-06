@@ -1,7 +1,7 @@
 flask
 flask-cors
 gunicorn
-ultralytics
+ultralytics==8.0.196
 pillow
 numpy
 opencv-python-headless
