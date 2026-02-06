@@ -4,29 +4,27 @@ from ultralytics import YOLO
 import io
 from PIL import Image
 
-# Inisialisasi Flask
 app = Flask(__name__)
 CORS(app)
 
-# Load model YOLOv8
-model = YOLO("best.pt")  # pastikan file best.pt ada di folder yang sama
+# load model sekali saat startup
+model = YOLO("best.pt")
 
-@app.route('/predict', methods=['POST'])
+@app.route("/", methods=["GET"])
+def health():
+    return "API ML OK"
+
+@app.route("/predict", methods=["POST"])
 def predict():
-    # Pastikan file dikirim
     if 'file' not in request.files:
         return jsonify({'error': 'Tidak ada file yang dikirim'}), 400
 
     file = request.files['file']
 
     try:
-        # Baca gambar
         img = Image.open(io.BytesIO(file.read()))
-
-        # Jalankan prediksi YOLO
         results = model.predict(img)
 
-        # Ambil hasil deteksi
         detections = []
         for box in results[0].boxes:
             cls_id = int(box.cls[0])
@@ -41,8 +39,3 @@ def predict():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
-
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
-
