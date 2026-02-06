@@ -1,0 +1,13 @@
+Step-by-step:
+
+1. Install python dulu (aku pake python 3.12)
+2. Buka CMD di folder project
+3. jalankan:
+
+"python -m venv venv"
+"venv\Scripts\activate.bat"
+"pip install -r requirements.txt"
+
+4. Jalankan server:
+
+"python app.py"
