@@ -7,3 +7,4 @@ numpy==1.26.4
 pillow==12.0.0
 opencv-python==4.12.0.88
 flask-cors
+gunicorn
