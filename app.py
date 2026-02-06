@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from ultralytics import YOLO
 import io
 from PIL import Image
 
 # Inisialisasi Flask
 app = Flask(__name__)
+CORS(app)
 
 # Load model YOLOv8
 model = YOLO("best.pt")  # pastikan file best.pt ada di folder yang sama
